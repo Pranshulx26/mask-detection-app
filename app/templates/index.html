@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Mask Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Mask Detection</h1>
+        
+        <!-- Webcam Section -->
+        <div class="webcam-container">
+            <video id="webcam" autoplay playsinline width="640" height="480"></video>
+            <canvas id="canvas" width="640" height="480"></canvas>
+            <div id="prediction" class="prediction-box"></div>
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn">Start Detection</button>
+            <button id="stopBtn" disabled>Stop Detection</button>
+            <select id="modelSelect">
+                <option value="fast">Fast Mode</option>
+                <option value="accurate">Accurate Mode</option>
+            </select>
+        </div>
+
+        <!-- Fallback upload form -->
+        <div class="upload-section">
+            <h3>Or upload an image:</h3>
+            <form id="uploadForm" action="/predict" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Predict</button>
+            </form>
+            {% if prediction %}
+            <div class="result">
+                <h2>Result: {{ prediction }}</h2>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+</body>
+</html>
