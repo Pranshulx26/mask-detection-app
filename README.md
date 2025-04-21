@@ -38,7 +38,7 @@ The model was trained on a dataset stored as a pickle file in the `data` folder.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/real-time-mask-detection.git](https://github.com/your-username/real-time-mask-detection.git)
+    git clone [https://github.com/Pranshulx26/mask-detection-app.git](https://github.com/Pranshulx26/mask-detection-app.git)
     cd real-time-mask-detection
     ```
 2.  **Create a virtual environment (optional but recommended):**
